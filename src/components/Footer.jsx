@@ -114,7 +114,7 @@ const Footer = () => {
                   </span>
                 </motion.li>
                 <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <span className="font-medium text-gray-800">Phone:</span> +91
+                  <span className="font-medium text-gray-800">Phone:</span>
                   +91 9449987547
                 </motion.li>
                 <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
