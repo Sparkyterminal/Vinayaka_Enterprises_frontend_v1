@@ -11,13 +11,13 @@ import Footer from "../components/Footer";
 import WhyChooseUs from "../sections/WhyChooseUs";
 import OurServices from "../sections/OurServices";
 
-// Animated Section Wrapper Component
+// Optimized Animated Section Wrapper Component
 const AnimatedSection = ({ children, id, className = "" }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
-    once: true,
-    // margin: "-100px",
-    amount: 0.3,
+    once: false, // Changed to false so animations can retrigger
+    margin: "0px 0px -150px 0px", // Better threshold control
+    amount: 0.1, // Reduced threshold for earlier trigger
   });
 
   return (
@@ -25,11 +25,15 @@ const AnimatedSection = ({ children, id, className = "" }) => {
       ref={ref}
       id={id}
       className={className}
-      initial={{ opacity: 0, y: 60 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: 30 }} // Reduced initial y offset
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{
-        duration: 0.5,
-        ease: [0.25, 0.4, 0.25, 1],
+        duration: 0.3, // Slightly faster animation
+        ease: "easeOut", // Simpler easing for better performance
+        opacity: { duration: 0.2 }, // Faster opacity transition
+      }}
+      style={{
+        willChange: isInView ? "auto" : "transform, opacity", // Performance optimization
       }}
     >
       {children}
@@ -57,16 +61,15 @@ const HomePage = () => {
         <OurApproach />
       </AnimatedSection>
 
-      {/* Our ourservices Section */}
+      {/* Our Services Section */}
       <AnimatedSection id="services">
         <OurServices />
       </AnimatedSection>
 
-      {/* Our whychoose Section */}
+      {/* Why Choose Us Section */}
       <AnimatedSection id="choose">
         <WhyChooseUs />
       </AnimatedSection>
-
 
       {/* Testimonials Section */}
       <AnimatedSection id="testimonials">
@@ -77,11 +80,6 @@ const HomePage = () => {
       <AnimatedSection id="events">
         <NotableEvents />
       </AnimatedSection>
-
-      {/* YouTube Section
-      <AnimatedSection id="youtube">
-        <YoutubeSections />
-      </AnimatedSection> */}
 
       {/* Footer - Always visible, has its own animations */}
       <Footer />

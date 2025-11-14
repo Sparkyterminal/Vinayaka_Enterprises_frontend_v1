@@ -2,7 +2,7 @@ import React from "react";
 
 const OurApproach = () => {
   return (
-    <section className="py-10 bg-white sm:py-16 lg:py-24">
+    <section className="pt-10 bg-white sm:pt-16 pb-6 lg:py-24">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-center text-4xl sm:text-4xl font-bold text-[#1D3271]">

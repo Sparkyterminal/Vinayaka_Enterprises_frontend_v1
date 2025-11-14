@@ -21,7 +21,7 @@ const HeroSection = () => {
   {/* Content above overlay */}
   <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 w-full">
     <motion.h1
-      className="text-blue-500 font-serif text-5xl md:text-4xl lg:text-5xl font-extrabold mb-4"
+      className="text-blue-500 font-serif text-4xl md:text-4xl lg:text-5xl font-extrabold mb-4"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
